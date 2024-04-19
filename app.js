@@ -16,5 +16,10 @@ const setQuotes = new Set();
 const  quotesTag = document.getElementById("quote");
 
 function generateQuote(){
-    quotesTag.innerText = "Hello World!";
+    // quotesTag.innerText = "Hello World!";
+
+    const randomIdx = Math.floor(Math.random() * quotes.length);
+    const quote = quotes[randomIdx];
+
+    quotesTag.innerHTML = quote;
 }
