@@ -17,7 +17,7 @@ const  quotesTag = document.getElementById("quote");
 
 function generateQuote(){
 
-    if(usedIndexes(randomIdx) >= quotes.length){
+    if(usedIndexes.size >= quotes.length){
         usedIndexes.clear();
     }
 
