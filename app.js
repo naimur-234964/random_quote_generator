@@ -11,15 +11,25 @@ const quotes = [
     "If you want to live a happy life, tie it to a goal, not to people or things." 
 ]
 
-const setQuotes = new Set();
+const usedIndexes = new Set();
 
 const  quotesTag = document.getElementById("quote");
 
 function generateQuote(){
-    // quotesTag.innerText = "Hello World!";
 
-    const randomIdx = Math.floor(Math.random() * quotes.length);
-    const quote = quotes[randomIdx];
+    if(usedIndexes(randomIdx) >= quotes.length){
+        usedIndexes.clear();
+    }
 
-    quotesTag.innerHTML = quote;
+    while(true){
+        const randomIdx = Math.floor(Math.random() * quotes.length);
+        
+        if(usedIndexes.has(randomIdx)) continue
+
+        const quote = quotes[randomIdx];    
+        quotesTag.innerHTML = quote;
+        usedIndexes.add(randomIdx);
+        break;
+    }
+
 }
